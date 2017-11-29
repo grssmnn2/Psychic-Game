@@ -5,6 +5,14 @@ var losses = 0;
 var guessesLeft = 10;
 var guessesList =[];
 
+var html = 
+		"<p> Wins: " + wins + "</p>" +
+		"<p> Losses: " + losses + "</p>" +
+		"<p> Guesses Left: " + guessesLeft + "</p>" +
+		"<p> Guesses so Far: " + guessesList + "</p>";
+
+		document.querySelector("#game").innerHTML = html;
+
 
 // When the user presses a keyboard key, computer should run this function
 document.onkeyup = function(event) {
@@ -16,32 +24,35 @@ document.onkeyup = function(event) {
 	// adds user guess to list
 	guessesList.push(userChoice);
 
-	// if user chooses computer guess, increase wins by 1
-	if (userChoice === computerChoice){
-		wins++;
-		guessesList.push(userChoice);
-		// prompt computer to choose a new random number and reset code
+
+	// function called to reset game
+	function reset() {
 		var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 		var guessesLeft = 10;
 		var guessesList = [];
-	}
-	// if no more guesses and still not choosing computer choice, increase Losses by 1, reset guesses left and empty guesses list
-	else if (guessesLeft === 0 && userChoice !== computerChoice){
-		losses++;
-		// prompt computer to choose a new random number and reset code
-		var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-		var guessesLeft = 10;
-		var guessesList = [];
+		}
 
-	
-	}
-		// if user choice does not equal computer choice, decrease guesses by 1 and add guess to list
-	else (userChoice !== computerChoice){
-		guesses--;
-		guessesList.push(userChoice);
-	}
+			// if user chooses computer guess, increase wins by 1
+			if (userChoice === computerChoice){
+				wins++;
+				// prompt computer to choose a new random number and reset code
+				guessesLeft=10;
+				guessesList=[];
+			}
+			// if no more guesses and still not choosing computer choice, increase Losses by 1, reset guesses left and empty guesses list
+			else {
+				guessesLeft--;
+				// prompt computer to choose a new random number and reset code
+				}
 
-	var html = 
+			// if user choice does not equal computer choice, decrease guesses by 1 and add guess to list
+			if (guessesLeft ===0){
+				losses++;
+				guessesLeft=10;
+				guessesList = [];
+			}
+
+		var html = 
 		"<p> Wins: " + wins + "</p>" +
 		"<p> Losses: " + losses + "</p>" +
 		"<p> Guesses Left: " + guessesLeft + "</p>" +
@@ -49,16 +60,14 @@ document.onkeyup = function(event) {
 
 		document.querySelector("#game").innerHTML = html;
 
-
-// 	document.getElementById(#game).innerHTML= `
-// 	Wins: ${wins}
-// 	Losses: ${losses}
-// 	Guesses Left: ${guessesLeft}
-// 	Guesses so Far: ${guessesList}
-
-// `;
 	
-}
+};
+
+
+
+
+	
+
 
 
 
