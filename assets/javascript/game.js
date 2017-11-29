@@ -21,23 +21,23 @@ document.onkeyup = function(event) {
 	// Generate random computer choice and store it in variable computerChoice
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 	
+
 	// adds user guess to list
-	guessesList.push(userChoice);
+		guessesList.push(userChoice);
+
+	
 
 
-	// function called to reset game
-	function reset() {
-		var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-		var guessesLeft = 10;
-		var guessesList = [];
-		}
-
-			// if user chooses computer guess, increase wins by 1
+				// if user chooses computer guess, increase wins by 1
 			if (userChoice === computerChoice){
 				wins++;
+				guessesList.push(userChoice);
+				alert("You win!!")
 				// prompt computer to choose a new random number and reset code
 				guessesLeft=10;
-				guessesList=[];
+				guessesList = [];
+				
+				
 			}
 			// if no more guesses and still not choosing computer choice, increase Losses by 1, reset guesses left and empty guesses list
 			else {
@@ -48,8 +48,10 @@ document.onkeyup = function(event) {
 			// if user choice does not equal computer choice, decrease guesses by 1 and add guess to list
 			if (guessesLeft ===0){
 				losses++;
+				alert("Everyone loses sometimes. Try again?");
 				guessesLeft=10;
 				guessesList = [];
+				
 			}
 
 		var html = 
