@@ -13,6 +13,12 @@ var html =
 
 		document.querySelector("#game").innerHTML = html;
 
+var reset = function (){
+	guessesLeft = 10;
+	guessesList = [];
+	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+}
+
 
 // When the user presses a keyboard key, computer should run this function
 document.onkeyup = function(event) {
@@ -27,25 +33,15 @@ document.onkeyup = function(event) {
     		// guessesList.push(userChoice);
  //    		}
 	// 	};
-	// 			
-					// reset function to call to reset game
-	// 			function reset() {
- // -				var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
- // -				var guessesLeft = 10;
- // -				var guessesList = [];
- // -			}
-
+			
 			// if user chooses computer guess, increase wins by 1
 			if (userChoice === computerChoice){
-				wins++;
+				wins++; 
 				guessesList.push(userChoice);
 				alert("You win!!")
 				// prompt computer to choose a new random number and reset code
-				guessesLeft=10;
-				guessesList = [];
-				var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-				
-				
+				reset();
+			
 			}
 
 			// if incorrect guess, decrease guesses by 1 and add guess to list
@@ -60,11 +56,11 @@ document.onkeyup = function(event) {
 				losses++;
 				alert("Everyone loses sometimes. Try again?");
 				// prompt computer to choose a new random number and reset code
-				guessesLeft=10;
-				guessesList = [];
-				var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-				
+				reset();
+					
 			}
+
+
 
 		var html = 
 		"<p> Wins: " + wins + "</p>" +
