@@ -20,12 +20,20 @@ document.onkeyup = function(event) {
 	var userChoice = event.key;
 	// Generate random computer choice and store it in variable computerChoice
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-
-	document.onkeyup = function(event){
-    if (event.key >= 65 && event.key <=90){
-    guessesList.push(userChoice);
-    }
-};
+	
+	// check if user input is alphabetical
+	// document.onkeyup = function(event){
+ //    if (event.key >= 65 && event.key <=90){
+    // guessesList.push(userChoice);
+ //    	}
+	// };
+	// 			
+					// reset function to call to reset game
+					// function reset() {
+ // -				var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+ // -				var guessesLeft = 10;
+ // -				var guessesList = [];
+ // -				}
 
 			// if user chooses computer guess, increase wins by 1
 			if (userChoice === computerChoice){
