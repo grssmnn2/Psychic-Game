@@ -20,20 +20,14 @@ document.onkeyup = function(event) {
 	var userChoice = event.key;
 	// Generate random computer choice and store it in variable computerChoice
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-	
 
-	// adds user guess to list if typed key is an alphabet letter
-	// 	function() {
+	document.onkeyup = function(event){
+    if (event.key >= 65 && event.key <=90){
+    guessesList.push(userChoice);
+    }
+};
 
-	// 	if (event.keyCode >= 65 && event.keyCode <=90){
-		guessesList.push(userChoice);
-	// 	}
-	// };
-
-	
-
-
-				// if user chooses computer guess, increase wins by 1
+			// if user chooses computer guess, increase wins by 1
 			if (userChoice === computerChoice){
 				wins++;
 				guessesList.push(userChoice);
@@ -44,10 +38,11 @@ document.onkeyup = function(event) {
 				
 				
 			}
-			// if no more guesses and still not choosing computer choice, increase Losses by 1, reset guesses left and empty guesses list
+			
 			else {
 				guessesLeft--;
-				// prompt computer to choose a new random number and reset code
+				guessesList.push(userChoice);
+				
 				}
 
 			// if user choice does not equal computer choice, decrease guesses by 1 and add guess to list
