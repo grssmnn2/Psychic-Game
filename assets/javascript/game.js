@@ -23,12 +23,12 @@ document.onkeyup = function(event) {
 	
 
 	// adds user guess to list if typed key is an alphabet letter
-		document.onkeypress = function(event){
-		
-		if (event.keyCode >= 65 && event.keyCode <=90){
+	// 	function() {
+
+	// 	if (event.keyCode >= 65 && event.keyCode <=90){
 		guessesList.push(userChoice);
-		}
-	};
+	// 	}
+	// };
 
 	
 
