@@ -22,8 +22,13 @@ document.onkeyup = function(event) {
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 	
 
-	// adds user guess to list
+	// adds user guess to list if typed key is an alphabet letter
+		document.onkeypress = function(event){
+		
+		if (event.keyCode >= 65 && event.keyCode <=90){
 		guessesList.push(userChoice);
+		}
+	};
 
 	
 
