@@ -13,16 +13,14 @@ body{
 
 h1{
 	font-size: 28px;
-	font-family: 'Spectral SC', serif;
-	
+
 }
 
 h3 {
 	font-size: 18px;
-	font-family: 'Spectral SC', serif;
 }
 
-p{
+h1, h3, p{
 	font-family: 'Spectral SC', serif;
 }
 
