@@ -73,7 +73,7 @@ document.onkeyup = function(event) {
 
 	}  else {
 		guessesList.pop(userChoice);
-		console.log(event.keyCode);
+	
 	}
 
 	
