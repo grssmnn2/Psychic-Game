@@ -16,31 +16,29 @@ var html =
 		document.querySelector("#game").innerHTML = html;
 
 	
-var reset = function (){
+var reset = function () {
 	guessesLeft = 10;
 	guessesList = [];
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 }
-
 
 // When the user presses a keyboard key, computer should run this function
 document.onkeyup = function(event) {
 	// user choice is whatever key was pressed
 	var userChoice = event.key;
 
-	// check if user input is alphabetical (erasing JS for some reason?)
-	// if (event.keyCode >= 65 && event.keyCode <= 90) {
-	// 	guessesList.push(userChoice);
-	// }
+	// check if user input is alphabetical (right now this makes double inputting and doesn't input if I erase a guess push)
+	if (event.keyCode >= 65 && event.keyCode <= 90) {
 		
-
-		// Generate random computer choice and store it in variable computerChoice
+	
+	// Generate random computer choice and store it in variable computerChoice
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 
 			// if user chooses computer guess, increase wins by 1
 			if (userChoice === computerChoice){
+				
 				wins++; 
-				alert("You win!!")
+				alert("You win!!");
 				// prompt computer to choose a new random number and reset code
 				reset();
 			
@@ -55,6 +53,7 @@ document.onkeyup = function(event) {
 
 			//if no more guesses, increase losses by 1 
 			if (guessesLeft ===0){
+				
 				losses++;
 				alert("Everyone loses sometimes. Try again?");
 				// prompt computer to choose a new random number and reset code
@@ -71,6 +70,11 @@ document.onkeyup = function(event) {
 		"<p> Guesses so Far: " + guessesList + "</p>";
 
 		document.querySelector("#game").innerHTML = html;
+
+	}  else {
+		guessesList.pop(userChoice);
+		console.log(event.keyCode);
+	}
 
 	
 };
