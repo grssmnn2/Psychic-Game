@@ -3,6 +3,7 @@ body{
 	text-align: center;
 	background-color: #EEE;
 }
+/*give image a standard width, height, rounded corners, centered margin, and shadow around image*/
 .img-rounded{
 	width: 50%;
 	height: 50%;
@@ -19,7 +20,7 @@ h1{
 h3 {
 	font-size: 18px;
 }
-
+/*google font linked and given to all text on document*/
 h1, h3, p{
 	font-family: 'Spectral SC', serif;
 }

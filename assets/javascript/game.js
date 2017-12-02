@@ -15,7 +15,7 @@ var html =
 
 		document.querySelector("#game").innerHTML = html;
 
-	
+// declare reset function to call after winning or losing game, resets game start
 var reset = function () {
 	guessesLeft = 10;
 	guessesList = [];
@@ -27,7 +27,7 @@ document.onkeyup = function(event) {
 	// user choice is whatever key was pressed
 	var userChoice = event.key;
 
-	// check if user input is alphabetical (right now this makes double inputting and doesn't input if I erase a guess push)
+	// check if user input is alphabetical and if so run the game, if not do not add input to guesses list
 	if (event.keyCode >= 65 && event.keyCode <= 90) {
 		
 	
@@ -62,15 +62,16 @@ document.onkeyup = function(event) {
 			}
 
 
-
+		// text to be displayed on user side of screen
 		var html = 
 		"<p> Wins: " + wins + "</p>" +
 		"<p> Losses: " + losses + "</p>" +
 		"<p> Guesses Left: " + guessesLeft + "</p>" +
 		"<p> Guesses so Far: " + guessesList + "</p>";
-
+		// document calls div id game, sends text above to document
 		document.querySelector("#game").innerHTML = html;
-
+		
+		// end of if/else showing popped wrong user input
 	}  else {
 		guessesList.pop(userChoice);
 	
