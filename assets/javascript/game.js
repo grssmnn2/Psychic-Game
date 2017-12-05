@@ -5,7 +5,6 @@ var losses = 0;
 var guessesLeft = 10;
 var guessesList =[];
 
-
 // visible text sent to html page and placed in div with id game
 var html = 
 		"<p> Wins: " + wins + "</p>" +
@@ -15,8 +14,9 @@ var html =
 
 		document.querySelector("#game").innerHTML = html;
 
-// declare reset function to call after winning or losing game, resets game start
-var reset = function () {
+
+	// declare reset function to call after winning or losing game, resets game start
+ 	function reset() {
 	guessesLeft = 10;
 	guessesList = [];
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -26,14 +26,14 @@ var reset = function () {
 document.onkeyup = function(event) {
 	// user choice is whatever key was pressed
 	var userChoice = event.key;
-
+	// Generate random computer choice and store it in variable computerChoice
+	
+	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+	
 	// check if user input is alphabetical and if so run the game, if not do not add input to guesses list
 	if (event.keyCode >= 65 && event.keyCode <= 90) {
 		
 	
-	// Generate random computer choice and store it in variable computerChoice
-	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-
 			// if user chooses computer guess, increase wins by 1
 			if (userChoice === computerChoice){
 				
